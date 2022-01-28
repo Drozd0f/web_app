@@ -1,0 +1,34 @@
+{% extends "base.jinja2" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ static('css/registration.css') }}">
+    <link rel="stylesheet" href="{{ static('css/popup.css') }}">
+{% endblock %}
+
+{% block content %}
+    <form method="post">
+        <div class="reg">
+            <h1>Create user</h1>
+            <label for="Name"><b>Name</b></label>
+            <input type="text"
+                   placeholder="Enter Name"
+                   name="name"
+                   pattern="^([А-ЯЁЇІЄҐ]{1}[а-яёїієґ]{2,23}|[A-Z]{1}[a-z]{2,23})$"
+                   title="Name must start with a capital letter and longer than two letters"
+                   required>
+
+            <label for="Last_name"><b>Last name</b></label>
+            <input type="text"
+                   placeholder="Enter Last name"
+                   name="last_name"
+                   pattern="^([А-ЯЁЇІЄҐ]{1}[а-яёїієґ]{2,23}|[A-Z]{1}[a-z]{2,23})$"
+                   title="Last name must start with a capital letter and longer than two letters"
+                   required>
+            <button type="submit" class="registerbtn">Create uer
+                <span class="popup_text" id="popup">{{ popup_text }}</span>
+            </button>
+        </div>
+    </form>
+    <a href="/users">User list</a>
+    <script type="text/javascript" src="{{ static('js/popup.js') }}"></script>
+{% endblock %}

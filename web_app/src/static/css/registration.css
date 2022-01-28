@@ -1,0 +1,64 @@
+.reg {
+    padding: 16px;
+    font-size: 22px;
+    display: flex;
+    flex-direction: column;
+}
+
+input[type=text] {
+    width: 400px;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    border-radius: 5px;
+    background: #f1f1f1;
+}
+
+input[type=text]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+.registerbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 5px;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    width: 400px;
+    opacity: 0.9;
+    transition: all .3s ease-in-out;
+}
+
+.registerbtn:hover {
+    opacity:1;
+}
+
+.registerbtn:active {
+    color: aqua;
+    transform: scale(.95);
+}
+
+a {
+    color: dodgerblue;
+}
+
+@media screen and (max-width: 600px){
+    .reg {
+        margin-bottom: 3vh;
+        font-size: 18px;
+    }
+
+    input[type=text] {
+        width: 200px;
+    }
+
+    .registerbtn {
+        width: 200px;
+    }
+}
