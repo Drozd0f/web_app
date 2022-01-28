@@ -2,33 +2,31 @@ version: '3.4'
 
 services:
   app:
-    # TODO: refactor /web_app/web_app
-    command: adev runserver /web_app/web_app
+    command: gunicorn --workers=4 --bind 0.0.0.0:8000 main:create_app() --worker-class aiohttp.GunicornWebWorker
     build:
       context: .
-      target: dev
-      dockerfile: Dockerfile
     ports:
       - '4444:8000'
     volumes:
-      - ./web_app:/web_app/web_app
+      - ./web_app:/web_app
     depends_on:
       - db
     environment:
       PYTHONUNBUFFERED: 1
+      DB_HOST: db
+      DB_USERNAME: ${APP_DB_USERNAME}
+      DB_PASSWORD: ${APP_DB_PASSWORD}
+      DB_DATABASE: ${APP_DB_DATABASE}
   db:
     container_name: pg_container
     image: postgres:latest
     restart: always
     environment:
-      # TODO: refactor env variable
-      POSTGRES_PASSWORD: toor
-      POSTGRES_USER: root
-      POSTGRES_DB: test_db
+      POSTGRES_PASSWORD: ${APP_DB_USERNAME}
+      POSTGRES_USER: ${APP_DB_PASSWORD}
+      POSTGRES_DB: ${APP_DB_DATABASE}
     volumes:
       - db:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
 
 volumes:
   db:

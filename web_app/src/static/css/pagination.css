@@ -1,0 +1,40 @@
+.pagination {
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: black;
+    cursor: not-allowed;
+}
+
+.pagination a {
+    float: left;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: background-color .3s;
+}
+
+.choice {
+    background-color: #04AA6D;
+    color: white;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.no-choice {
+    color: black;
+}
+
+.pagination .no-choice:hover {
+    background-color: rgb(189, 189, 189);
+}

@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: lightgray;
+    height: 100vh;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.table_users {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 4vh;
+}
+
+@media screen and (max-width: 600px){
+    body  {
+        margin-top: 2vh;
+    }
+
+    .table_users {
+        margin-bottom: 2vh;
+    }
+}
