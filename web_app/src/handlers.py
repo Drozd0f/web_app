@@ -12,10 +12,11 @@ async def reg_user(request: web.Request):
     pool = request.app['pool']
     data = await request.post()
     user = await db.get_user(pool, data)
+    print(data)
     if user is None:
         await db.create_user(pool, data)
-        return None
-    return f'Привет {user.name} {user.lastname}'
+        return f'Привіт {data["name"]} {data["last_name"]}'
+    return f'Вже бачилися {user.name} {user.lastname}'
 
 
 async def get_users_list(request: web.Request, page: int) -> int:
@@ -45,12 +46,10 @@ async def get_pages(request: web.Request, current_page: int) -> tuple:
 
 @aiohttp_jinja2.template('reg.jinja2')
 async def reg(request: web.Request):
-    popup_text = 'user not exists'
+    popup_text = ''
 
     if request.method == hdrs.METH_POST:
-        is_user_exists = await reg_user(request)
-        if is_user_exists is not None:
-            popup_text = is_user_exists
+        popup_text = await reg_user(request)
 
     return {
         'popup_text': popup_text

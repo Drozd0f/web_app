@@ -25,7 +25,9 @@
                    title="Last name must start with a capital letter and longer than two letters"
                    required>
             <button type="submit" class="registerbtn">Create uer
-                <span class="popup_text" id="popup">{{ popup_text }}</span>
+                {% if popup_text != '' %}
+                    <span class="popup_text" id="popup">{{ popup_text }}</span>
+                {% endif %}
             </button>
         </div>
     </form>

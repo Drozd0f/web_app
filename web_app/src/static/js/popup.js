@@ -1,9 +1,7 @@
 let popup = document.getElementById("popup")
 
 function showPopup() {
-    if (popup.textContent !== 'user not exists') {
-        popup.classList.toggle("show")
-    }
+    popup.classList.toggle("show")
 }
 
 showPopup()
