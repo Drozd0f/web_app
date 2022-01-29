@@ -1,13 +1,15 @@
-let popup = document.getElementById("popup")
+if (document.querySelector(".popup_text")) {
+    let popup = document.getElementById("popup")
 
-function showPopup() {
-    popup.classList.toggle("show")
-}
+    function showPopup() {
+        popup.classList.toggle("show")
+    }
 
-showPopup()
+    showPopup()
 
-window.onclick = function (e) {
-    if (e.target !== popup) {
-        popup.classList.remove("show")
+    window.onclick = function (e) {
+        if (e.target !== popup) {
+            popup.classList.remove("show")
+        }
     }
 }

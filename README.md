@@ -20,6 +20,8 @@ export APP_DB_PASSWORD="password"
 export APP_DB_DATABASE="database"
 ```
 
+---
+
 To run
 ```shell
 make
